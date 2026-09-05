@@ -158,6 +158,7 @@ export class GameUI {
           <span class="tool-divider"></span>
           <button class="icon-tool sound-toggle" data-action="sound" aria-label="静音" title="声音">${sound}</button>
           <button class="icon-tool fullscreen-toggle" data-action="fullscreen" aria-label="全屏显示" title="全屏">${expand}</button>
+          <a class="github-link" href="https://github.com/06wj/kaze-skyward-journey" target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 GitHub 仓库"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.914-3.13.68-3.79-1.509-3.79-1.509-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.725 1.16 1.725 1.16 1.005 1.722 2.637 1.225 3.28.937.102-.728.393-1.225.715-1.507-2.498-.284-5.124-1.249-5.124-5.561 0-1.229.439-2.234 1.16-3.021-.116-.284-.503-1.429.11-2.979 0 0 .945-.303 3.094 1.154a10.79 10.79 0 0 1 5.625 0c2.149-1.457 3.093-1.154 3.093-1.154.614 1.55.227 2.695.111 2.979.722.787 1.159 1.792 1.159 3.021 0 4.323-2.63 5.274-5.136 5.553.404.349.766 1.034.766 2.084 0 1.505-.014 2.719-.014 3.088 0 .3.203.651.774.54A11.25 11.25 0 0 0 12 .75Z"/></svg><span>GitHub</span><span aria-hidden="true">↗</span></a>
         </div>
       </header>
 
