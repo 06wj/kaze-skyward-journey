@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-*/
+.DS_Store
+*.blend1
+.env
+.env.*
+!.env.example
+artifacts/*
+!artifacts/QA.md
+!artifacts/playthrough.json
+!artifacts/release-smoke.json
+!artifacts/final-sunset.png
+!artifacts/final-morning.png
+!artifacts/final-flight.png

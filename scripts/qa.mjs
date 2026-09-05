@@ -1,0 +1,11 @@
+import { launchBrowser } from './browser.mjs';
+import fs from 'node:fs';
+const browser = await launchBrowser();
+const page=await browser.newPage({viewport:{width:1600,height:1000},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+await page.goto((process.env.DEV_URL || 'http://localhost:5173/'));await page.waitForFunction(()=>!!window.__KAZE__,{timeout:30000});await page.waitForTimeout(1500);
+await page.screenshot({path:'artifacts/menu-sunset.png'});console.log('BOOT',await page.evaluate(()=>({state:window.__KAZE__.state.screen,renderer:window.__KAZE__.renderer,routeAudit:window.__KAZE__.routeAudit()})));
+await page.getByRole('button',{name:/开始飞行/}).click();await page.waitForTimeout(1700);await page.screenshot({path:'artifacts/gameplay-sunset.png'});console.log('FLIGHT',await page.evaluate(()=>({screen:window.__KAZE__.state.screen,position:window.__KAZE__.state.position})));
+await page.keyboard.down('KeyW');await page.keyboard.down('ShiftLeft');await page.waitForTimeout(600);await page.keyboard.up('KeyW');await page.keyboard.up('ShiftLeft');await page.keyboard.press('Escape');await page.waitForTimeout(400);console.log('PAUSE',await page.evaluate(()=>window.__KAZE__.state.screen));
+await page.screenshot({path:'artifacts/pause.png'});await page.keyboard.press('Escape');await page.waitForTimeout(200);console.log('RESUME',await page.evaluate(()=>window.__KAZE__.state.screen));
+console.log('ERRORS',errors);fs.writeFileSync('artifacts/qa-initial.json',JSON.stringify({errors},null,2));await browser.close();
